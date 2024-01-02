@@ -10,9 +10,9 @@
     
     "影片年代":"detail-tags-item\">&&</a>",
     
-    "影片状态":"class=\"detail-tags fs-margin-top&&立即播放",
+    "影片状态":"备注:&&</div>",
 
-    "影片类型":"类型：detail-tags-item\">&&</a>",
+    "影片类型":"detail-tags-item\">&&立即播放",
     
     "导演":"导演：&&</a>",
     
@@ -27,11 +27,8 @@
     "副标题":"v-item-bottom\">&&</span>",
     
     "链接":"href=\"&&\"",
-
-	"搜索模式":"1",	
+	
 		
-    "搜索url":"https://www.keke3.app/search?wd={wd}",	
-			
     "线路数组":"javascript:void&&</a>",
     
     "线路标题":"🌺风言锋语88🌺+source-item-label\">&&</a>[替换:</i>*>>>共]+集",
