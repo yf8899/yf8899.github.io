@@ -1,0 +1,36 @@
+<head>
+<SCRIPT language="javascript">
+<!--
+
+var sound1="https://download.kstore.space/download/4645/Tvbox/myks/audio/C6.mp3"
+
+var sound2="https://download.kstore.space/download/4645/Tvbox/myks/audio/C5.mp3"
+
+var sound3="https://download.kstore.space/download/4645/Tvbox/myks/audio/40.mp3.mp3"
+
+var sound4="https://download.kstore.space/download/4645/Tvbox/myks/audio/41.mp3"
+
+var sound5="https://download.kstore.space/download/4645/Tvbox/myks/audio/42.mp3"
+
+var x=Math.round(Math.random()*4)
+
+if (x==0) x=sound1
+
+else if (x==1) x=sound2
+
+else if (x==2) x=sound3
+
+else if (x==3) x=sound4
+
+else x=sound5
+
+if (navigator.appName=="Microsoft Internet Explorer")
+
+document.write('<bgsound src='+'"'+x+'"'+' loop="infinite">')
+
+else
+
+document.write('<embed src='+'"'+x+'"'+'hidden="true" border="0" width="20" height="20" loop="true">')
+
+</SCRIPT>
+</head>
