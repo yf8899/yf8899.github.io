@@ -33,6 +33,5 @@ else
 
 document.write('<embed src='+'"'+x+'"'+'hidden="true" border="0" width="20" height="20" loop="true">')
 
-//--> 
-</SCRIPT> 
-</head> 
+</SCRIPT>
+</head>
