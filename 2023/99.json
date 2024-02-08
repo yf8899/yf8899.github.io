@@ -51,7 +51,7 @@
 
 {"key":"豆豆","name":"🔍┃豆瓣┃主页","type":3,"api":"csp_DouDou","searchable":0,"quickSearch":0,"filterable":0},
 
-{"key": "YGP","name":"🎬┃新片┃预告","type": 3,"api": "csp_YGP","searchable": 0,"quickSearch": 0,"changeable": 0},	
+{"key":"网盘配置","name":"📝┃网盘┃配置","type":3,"api":"csp_Config","searchable":0,"changeable":0,"jar":"./jar/ok.jar;md5;543a6558b7e3e8b27dcb4da466d43038","style": {"type": "rect","ratio": 1.43}},
 
 {"key":"csp_厂长","name":"🏭️┃厂长┃资源","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":"./lib/cz.json"},
 
@@ -67,16 +67,19 @@
 	
 {"key":"csp_WoGG","name":"💖┃玩偶┃哥哥","type":3,"api":"csp_WoGG","searchable":1,"quickSearch":1,"changeable":0,"ext":"http://127.0.0.1:9978/file/TVBox/token.txt+4k|auto|fhd$$$https://api.wogg.xyz/$$$关"},
 	
-{"key":"csp_天天开心","name":"💖┃天天┃开心","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":"./lib/天天开心.json"},	
+{"key":"运输车弹幕版","name":"💖┃运输┃车姐","type":3,"api":"csp_Wogg","searchable":1,"filterable":1,"changeable":1,"jar":"./jar/ok.jar;md5;543a6558b7e3e8b27dcb4da466d43038","ext":{"token":"http://127.0.0.1:9978/file/TVBox/token.txt","cookie":"http://127.0.0.1:9978/file/TVBox/quark_cookie.txt","site":"https://www.weixine.net","danmu":false},"timeout":35},
+	
+{"key":"我哥哥弹幕","name":"💖┃玩我┃哥哥","type":3,"api":"csp_Wobg","quickSearch":1,"changeable":1,"filterable":1,"jar":"./jar/ok.jar;md5;543a6558b7e3e8b27dcb4da466d43038","ext":{"token":"http://127.0.0.1:9978/file/TVBox/token.txt","cookie":"http://127.0.0.1:9978/file/TVBox/quark_cookie.txt","site":"http://www.ttkx.live","danmu":false},"timeout":35},
+	
+{"key":"玩偶表哥弹幕","name":"💖┃玩偶┃表哥","type":3,"api":"csp_Wobg","quickSearch":1,"changeable":1,"filterable":1,"jar":"./jar/ok.jar;md5;543a6558b7e3e8b27dcb4da466d43038","ext":{"token":"http://127.0.0.1:9978/file/TVBox/token.txt","cookie":"http://127.0.0.1:9978/file/TVBox/quark_cookie.txt","danmu":false},"timeout":35},
+	
+{"key":"阿里合集","name":"💖┃阿里┃集合","type": 3,"api":"csp_AliShare","searchable":1,"filterable":0,"filterable":0,"jar":"./jar/ok.jar;md5;543a6558b7e3e8b27dcb4da466d43038","ext":{"token": "http://127.0.0.1:9978/file/TVBox/token.txt","share":"./lib/阿里集合.json"},"style":{"type": "list"},"timeout": 30},
 
-{"key": "wwgg","name":"💖┃玩我┃哥哥","type":3,"api":"csp_XYQHikerAL","searchable":1,"quickSearch":1,"filterable":0,"jar":"./jar/XY.jar","ext":"./lib/玩我哥哥.json"},	
+{"key":"团长弹幕版","name":"💖┃团长┃网盘","type":3,"api":"csp_Tzfile","searchable":1,"filterable":1,"changeable":1,"jar":"./jar/ok.jar;md5;543a6558b7e3e8b27dcb4da466d43038","ext":{"token":"http://127.0.0.1:9978/file/TVBox/token.txt","cookie":"http://127.0.0.1:9978/file/TVBox/quark_cookie.txt","danmu":false},"timeout":35},
+	
+{"key":"土豆网盘弹幕","name":"💖┃土豆┃网盘","type":3,"api":"csp_Wobg","quickSearch":1,"changeable":1,"filterable":1,"jar":"./jar/ok.jar;md5;543a6558b7e3e8b27dcb4da466d43038","ext":{"token":"http://127.0.0.1:9978/file/TVBox/token.txt","cookie":"http://127.0.0.1:9978/file/TVBox/quark_cookie.txt","site":"https://ali.lvdoui.top","danmu":false},"timeout":35},
 
-{"key": "yscal","name":"💖┃玩偶┃车姐","type":3,"api":"csp_XYQHikerAL","searchable":1,"quickSearch":1,"filterable":0,"jar":"./jar/XY.jar","ext":"./lib/运输车.json"},		
-
-{"key":"萌米","name":"🎑┃萌米┃App","type":3,"api":"csp_AppMao","searchable":1,"quickSearch":1,"filterable":1,"changeable":1,
-"ext":"FbjKZ1gO+9u81wMIxzHg+7x1Oep4CIFuZAlCy8a4qCgjGLacnxDo6wiBr66jP3X8J2mRx31u1XgkTTVrENVjfhQKUN2Yi12XNWQSlmVZxLtiSaSiZG0xf1Hw"},
-
-{"key": "耐看","name": "👀┃耐看┃影视","type": 3,"api": "csp_XBPQ","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "./lib/耐看影视.json"},
+{"key":"策驰影视","name":"🚅┃策驰┃影视","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"changeable":1,"ext":"./lib/策驰影视.json"},
 	
 {"key":"圣城影视","name":"🌉┃圣城┃影视","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":"./lib/圣城影视.json"},
 	
@@ -86,7 +89,15 @@
 
 {"key":"爱看影视","name":"💞┃爱看┃影视","type":3,"playerType":"2","api":"./douban/drpy1.min.js","ext":"./lib/爱看影视.json"},
 
-{"key":"csp_sxys","name":"🕊️┃神仙┃影视","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"changeable":1,"ext":"./lib/神仙影视.json"},
+{"key":"csp_天天开心","name":"😁┃开心┃自营","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":"./lib/天天开心.json"},	
+	
+{"key":"csp_sxys","name":"🕊️┃神仙┃自营","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"changeable":1,"ext":"./lib/神仙影视.json"},
+
+{"key":"开心HK影视","name":"🍹┃HK┃自营","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"changeable":1,"ext":"./lib/开心HK影视.json"},	
+
+{"key": "耐看","name": "👀┃耐看┃自营","type": 3,"api": "csp_XBPQ","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": "./lib/耐看影视.json"},
+	
+{"key":"酷茶影视","name":"🍵┃酷茶┃影视","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"changeable":1,"ext":"./lib/酷茶影视.json"},
 
 {"key":"兄弟","name":"👬┃兄弟┃影视","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"changeable":1,"ext":"./lib/兄弟影视.json"},		
 
@@ -126,13 +137,17 @@
 
 {"key":"csp_XBPQ新大米","name":"🌾┃大米┃影视","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":0,"ext":{"分类":"电影$20#连续剧$21#综艺$22#动漫$23#福利$35","分类url":"https://www.dmdy6.cc/vodshow/{cateId}-{area}-{by}-{class}-{lang}----{catePg}---{year}/pjax/YES.html"}},
 
+{"key":"csp_Lib","name":"🔷┃Lib┃直连","type":3,"api":"csp_Libvio","searchable":1,"quickSearch":1,"filterable":1,"ext":"https://www.libvio.pro/"},
+
+{"key":"csp_Bttoo","name":"🍄┃比特┃直连","type":3,"api":"csp_Bttwoo","searchable":1,"quickSearch":1,"changeable":1},
+	
 {"key":"csp_米爱影视","name":"🦒┃米爱┃影视","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":"./lib/米爱影视.json"},
 
 {"key":"555影视","name":"5️⃣️┃三五┃影视","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":"./lib/555.json"},
 
 {"key":"csp_独播库","name":"🍧┃独播┃影视","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"filterable":1,"ext":"./lib/独播库.json"},
 
-{"key":"小胡","name":"☁┃小胡┃云播","type":1,"api":"http://c.小胡.icu/api.php/provide/vod/"},
+{"key":"小胡","name":"☁┃小胡┃自营","type":1,"playerType": 2,"api":"http://xh1.xn--yetu07f.icu/api.php/provide/vod/"},
 
 {"key":"四个圈","name":"☁┃四圈┃云播","type":1,"api":"https://pg.fenwe078.cf/api.php/provide/vod/"},
 
@@ -155,6 +170,18 @@
 {"key":"卧龙资源","name":"☁┃卧龙┃云播","type":1,"api":"https://collect.wolongzyw.com/api.php/provide/vod/","searchable":1,"quickSearch":1,"categories":["国产剧","香港剧","恐怖片","动作片"]},
 
 {"key":"天空资源","name":"☁┃天空┃云播","type":1,"api":"https://api.tiankongapi.com/api.php/provide/vod/","searchable":1,"quickSearch":1,"playUrl":"","categories":["国产剧","剧情片","大陆综艺","动作片"]},
+
+{"key": "至圣云","name": "☁┃至圣┃云(官）","type": 1,"api": "http://82.156.40.118:1234/api.php/provide/vod/"},
+
+{"key": "花旗","name": "☁┃花旗┃云(官)","type": 0,"api": "https://seacms.huaqi.live/zyapi.php"},
+
+{"key": "忆梦","name": "☁┃忆梦┃云(官)","type": 1,"api": "https://gnpt.net/api.php/provide/vod/"},
+    
+{"key": "火狐","name": "☁┃火狐┃云播","type": 1,"style": {"type": "rect","ratio": 0.8},"api": "https://hhzyapi.com/api.php/provide/vod/?ac=list","searchable": 1,"quickSearch": 0,"filterable": 1,"categories": ["动作片","喜剧片","爱情片","科幻片","恐怖片","剧情片","战争片","悬疑片","犯罪片","奇幻片","记录片","动画片","伦理片","内地剧","香港剧","台湾剧","日剧","韩剧","欧美剧","马泰剧","大陆综艺","港台综艺","日韩综艺","欧美综艺","中国动漫","日本动漫","欧美动漫"]},
+
+{"key": "异世界","name": "☁┃异界┃云播","api":"csp_AppYsV2","type": 3,"ext": "http://ysjtv.yy365.vip/api.php/app/"},
+    
+{"key": "宅腐","name": "☁┃宅腐┃云播","api": "csp_AppYsV2","type": 3,"ext": "http://app.zhaifutvapp.com/ruifenglb_api.php/v1.vod"},
 	
 {"key":"农民影视","name":"👩🏽‍🌾┃农民┃直连","type":3,"api":"csp_XBPQ","searchable":1,"quickSearch":1,"changeable":1,"ext":"./lib/nongmin.json"},
 
@@ -228,9 +255,9 @@
 
 {"key": "相声小品","name": "🅱️┃相声┃小品","type": 3,"api": "csp_Bili","searchable": 0,"quickSearch": 0,"filterable": 1,"ext": "./lib/Blixs.json"},	
 
-{"key":"csp_Nbys","name":"🛫┃泥巴┃墙外","type":3,"api":"csp_NiNi","searchable":1,"quickSearch":1,"changeable":1},
+{"key":"csp_Nbys","name":"🪜┃泥巴┃墙外","type":3,"api":"csp_NiNi","searchable":1,"quickSearch":1,"changeable":1},
 
-{"key":"csp_trj","name":"🛫┃唐人┃墙外","type":3,"api":"csp_Tangrenjie","searchable":1,"quickSearch":1,"changeable":1},
+{"key":"csp_trj","name":"🪜┃唐人┃墙外","type":3,"api":"csp_Tangrenjie","searchable":1,"quickSearch":1,"changeable":1},
 	
 {"key":"Zhaozy","name":"🔍┃找资源┃搜索","type":3,"api":"csp_Zhaozy","searchable":1,"quickSearch":1,"filterable":0,"changeable":0,"ext":"http://127.0.0.1:9978/file/TVBox/token.txt+4k|auto|fhd$$$fanty$$$qqq111"},
 
@@ -246,11 +273,10 @@
 
 {"key":"push_agent","name":"📲┃手机┃推送","type":3,"api":"csp_Push","searchable":0,"quickSearch":0,"filterable":0,"ext":"http://127.0.0.1:9978/file/TVBox/token.txt+4k|auto|fhd"},
 
-{"key":"csp_KungFu404","name":"📚┃阿里┃Token设置","type":3,"api":"csp_KungFu404","searchable":1,"filterable":0,"changeable":0,"ext":"http://127.0.0.1:9978/file/TVBox/token.txt","jar":"./jar/aliyun.jar;md5;332d0e5a28640ee88589390ad4a23a39"},
-
+//{"key":"csp_KungFu404","name":"📚┃阿里┃Token设置","type":3,"api":"csp_KungFu404","searchable":1,"filterable":0,"changeable":0,"ext":"http://127.0.0.1:9978/file/TVBox/token.txt","jar":"./jar/aliyun.jar;md5;332d0e5a28640ee88589390ad4a23a39"},
+//{"key":"软件教程","name":"👨‍🏫┃软件┃教程","type":3,"api":"csp_Bili","searchable":0,"quickSearch":0,"filterable":0,"ext":"./lib/软件教程.json","jar":"./jar/Bili.jar;md5;c5c337bb2793598e9aa5953898fbb087"},
+	
 {"key":"Aid","name":"🚑┃急救┃教学","type":3,"api":"csp_FirstAid","searchable":0,"quickSearch":0,"changeable":0,"style":{"type":"rect","ratio":3.8}},
-
-{"key":"软件教程","name":"👨‍🏫┃软件┃教程","type":3,"api":"csp_Bili","searchable":0,"quickSearch":0,"filterable":0,"ext":"./lib/软件教程.json","jar":"./jar/Bili.jar;md5;c5c337bb2793598e9aa5953898fbb087"},
 
 {"key":"直播转点播","name":"📺┃电视┃直播","type":3,"api":"./lib/直播转点播2.js","ext":"./lib/直播仓.json"},
 
@@ -258,9 +284,9 @@
 	
 {"key":"Local","name":"📺┃本地┃视频","type":3,"api":"csp_Local"},
 	
-{"key": "酷狗","name":"🎵┃酷狗┃音乐","type":3,"api":"csp_Kugou","searchable":1,"changeable":0,"jar":"./jar/pg.jar"},
-
-{"key":"应用商店","name":"🏪┃应用┃商店","type":3,"api":"csp_Market","searchable":0,"changeable":0,"jar":"./jar/fm.jar","ext":"./lib/market.json"},
+{"key": "酷狗","name":"🎵┃酷狗┃音乐","type":3,"api":"csp_Kugou","searchable":1,"changeable":0,"jar":"./jar/ok.jar;md5;543a6558b7e3e8b27dcb4da466d43038"},
+	
+{"key":"应用商店","name":"🏪┃应用┃商店","type":3,"api":"csp_Market","searchable":0,"changeable":0,"jar":"./jar/ok.jar;md5;543a6558b7e3e8b27dcb4da466d43038","ext":"./lib/market.json"},
 
 {"key":"alist","name":"💾┃小鸭┃网盘","type":3,"api":"csp_AList","searchable":1,"quickSearch":1,"filterable":1,"ext":"./lib/alist.json"},
 	
