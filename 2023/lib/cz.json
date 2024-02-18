@@ -1,31 +1,54 @@
 {
 	"作者": "风言锋语88",
+	
 	"站名": "厂长",
-	"主页url": "https://www.czzy55.com/",
+	
+	"主页url": "https://bo.czys.me",
+	
 	"数组": " <li>&&display: none",
-	"直接播放": "0",
+	
 	"图片": "data-original=\"&&\"",
+	
 	"标题": "title=\"&&\"",
+	
 	"链接": "href=\"&&\"",
+	
 	"副标题": "1080P",
+	
 	"搜索模式":"1", 
-    "搜索url":"https://www.czzy55.com/xssearch?q={wd}",
+	
+    "搜索url":"https://bo.czys.me/xssearch?q={wd}",
+	
 	"影片类型": "类型：&&</li>",
+	
 	"影片年代": "年份：&&</a>",
+	
 	"影片地区": "地区：&&</a>",
-	"影片状态": "状态：&&</li>",
+	
 	"导演": "导演：&&</li>",
+	
 	"主演": "主演：&&</li>",
-	"简介": "公众号《风言锋语88》提醒您:请勿相信影片中的广告，以免上当受骗🥇+yp_context\">&&</div>",
+	
+	"简介": "公众号《风言锋语88》提醒您:请勿相信影片中的广告，以免上当受骗🥇+yp_context\">*<p>&&</p>",
+	
 	"嗅探词": ".m3u8#m3u8?#.mp4#mp4?#ixigua#.czspp#.flv#.mp3#.m4a#?item/video#is_play_url=1#play/?#qianpailive",
-	"线路数组": "mi_paly_box&&</a>",
-	"线路标题": "🌺风言锋语88🌺+\">&&<span>",
-	"播放数组": "ypxingq_t&&mi_cont cai_con",
-	"播放列表": "",
+	
+	"线路数组": "mi_paly_box\">&&</div>",
+	
+	"线路标题": "🌺风言锋语88🌺+ypxingq_t\">&&<span>",
+	
+	"播放数组": "paly_list_btn\">&&</div>",
+	
+	"播放列表": "<a&&</a>",
+	
 	"播放标题": "\">&&</a>",
+	
 	"播放链接": "href=\"&&\"",
-	"分类url": "https://www.czzy55.com/{cateId}/page/{catePg}",
+	
+	"分类url": "https://bo.czys.me/{cateId}/page/{catePg}",
+	
 	"分类": "国产剧$gcj#最新电影$zuixindianying#热映中$benyueremen#剧场版$dongmanjuchangban#番剧$fanju#豆瓣电影Top250$dbtop250#海外剧$haiwaijuqita#美剧$meijutt#韩剧$hanjutv",
+	
 	"筛选":{
     "movie_bt":[
     {"key":"area","name":"分类","value":[
