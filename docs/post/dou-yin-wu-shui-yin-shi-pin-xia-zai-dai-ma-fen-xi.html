@@ -86,7 +86,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <div class="markdown-body" id="postBody"><p>看到有大神分享了一个去水印下载的代码，源代码是PHP的。我简单读了一下，测试后其实很简单，这里简单记录一下，之后可以做一些东西。</p>
 <h3>获取视频ID</h3>
 <p>其实这一步很简单，如果是电脑上的浏览器访问的，地址栏最后就会包含这个ID。例如</p>
-<div class="highlight highlight-source-shell"><pre class="notranslate">https://www.douyin.com/video/7324602766213598501</pre></div>
+<div class="highlight highlight-source-json"><pre class="notranslate"><span class="pl-ii">https://www.douyin.com/video/7324602766213598501</span></pre></div>
 <p>最后面的一串数字就是这个视频的ID。</p>
 <h3>获取uri</h3>
 <p>通过<code class="notranslate">API</code>获取这个视频<code class="notranslate">play_addr</code>的<code class="notranslate">uri</code>地址。</p>
