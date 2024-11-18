@@ -15,7 +15,7 @@
 
 	"startSite": "18/11/2024",
 
-	"filingNum": "",
+	"filingNum": "风言锋语88",
 
 	"onePageListNum": 15,
 
@@ -35,11 +35,11 @@
 	"i18n": "CN",
 	"UTC": 8,
 
-	"themeMode": "fix",
+	"themeMode": "manual",
 
-	"dayTheme": "dark",
+	"dayTheme": "light",
 
-	"nightTheme": "dark-blue",
+	"nightTheme": "dark_colorblind",
 
 	"urlMode": "pinyin",
 
