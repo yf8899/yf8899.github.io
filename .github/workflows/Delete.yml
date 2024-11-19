@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Delete old builds
-      uses: actions/github-script@v5
+      uses: actions/github-script@v6  # 假设v6支持Node.js 16
       with:
         script: |
           const THRESHOLD = 3; // 天数
