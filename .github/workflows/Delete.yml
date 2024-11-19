@@ -1,25 +1,28 @@
 name: Delete old builds
 
 on:
-  schedule:
-    - cron: '0 0 * * *' # 每天午夜运行
-  workflow_dispatch: # 允许手动运行
+  workflow_dispatch: # 手动运行
 
 jobs:
   delete_old_builds:
     runs-on: ubuntu-latest
     steps:
-    - name: Delete old builds
-      uses: actions/github-script@v5  # 假设v7支持Node.js 20
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
       with:
         node-version: 20
+        cache: 'npm'
+
+    - name: Delete old builds
+      uses: actions/github-script@v5
+      with:
         script: |
           const THRESHOLD = 3; // 天数
-          const repo = context.repo;
+          const { owner, repo } = context.repo;
           // 获取构建列表
           let response = await github.rest.actions.listWorkflowRuns({
-            owner: repo.owner,
-            repo: repo.repo,
+            owner: owner,
+            repo: repo,
             status: 'completed',
             per_page: 100, // 可以调整每页显示的构建数量
             page: 1 // 可以调整页码，如果有很多构建的话
@@ -29,8 +32,8 @@ jobs:
           for (let run of response.data.workflow_runs) {
             if (Date.now() - new Date(run.created_at).getTime() > THRESHOLD * 24 * 60 * 60 * 1000) {
               await github.rest.actions.deleteWorkflowRun({
-                owner: repo.owner,
-                repo: repo.repo,
+                owner: owner,
+                repo: repo,
                 run_id: run.id,
               });
             }
