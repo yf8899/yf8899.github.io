@@ -1,0 +1,35 @@
+name: Delete old builds
+ 
+on:
+  schedule:
+    - cron: '0 0 * * *' # 每天午夜运行
+ 
+jobs:
+  delete_old_builds:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Delete old builds
+      uses: actions/github-script@v5
+      with:
+        script: |
+          const THRESHOLD = 5; // 天数
+          const repo = github.repository;
+          // 获取构建列表
+          let response = await github.rest.actions.listWorkflowRuns({
+            owner: repo.owner.login,
+            repo: repo.name,
+            status: 'completed',
+          });
+ 
+          // 遍历构建并删除旧的
+          for (let run of response.data.workflow_runs) {
+            if (Date.now() - new Date(run.created_at).getTime() > THRESHOLD * 24 * 60 * 60 * 1000) {
+              await github.rest.actions.deleteWorkflowRun({
+                owner: repo.owner.login,
+                repo: repo.name,
+                run_id: run.id,
+              });
+            }
+          }
+ 
+          console.log('Old builds deleted successfully.');
