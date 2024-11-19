@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Delete old builds
-      uses: actions/github-script@v7  # 假设v7支持Node.js 20
+      uses: actions/github-script@v5  # 假设v7支持Node.js 20
       with:
+        node-version: 20
         script: |
           const THRESHOLD = 3; // 天数
           const repo = context.repo;
