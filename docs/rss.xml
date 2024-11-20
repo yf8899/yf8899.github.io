@@ -1,9 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XiaoYu_博客</title><link>https://bk.yf1688.top</link><description>学习是一个永无止境的过程，你知道的越多，你不知道的也会越多，在有限的时间内坚持每天多学一点，你一定能成为你想要成为的那个人。</description><copyright>XiaoYu_博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://yf1688.top/1115/static/img/logo.png</url><title>avatar</title><link>https://bk.yf1688.top</link></image><lastBuildDate>Wed, 20 Nov 2024 07:37:59 +0000</lastBuildDate><managingEditor>XiaoYu_博客</managingEditor><ttl>60</ttl><webMaster>XiaoYu_博客</webMaster><item><title>Markdown语法</title><link>https://bk.yf1688.top/post/Markdown-yu-fa.html</link><description>## 1 Markdown.com.cn 简介&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XiaoYu_博客</title><link>https://bk.yf1688.top</link><description>学习是一个永无止境的过程，你知道的越多，你不知道的也会越多，在有限的时间内坚持每天多学一点，你一定能成为你想要成为的那个人。</description><copyright>XiaoYu_博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://yf1688.top/1115/static/img/logo.png</url><title>avatar</title><link>https://bk.yf1688.top</link></image><lastBuildDate>Wed, 20 Nov 2024 07:38:59 +0000</lastBuildDate><managingEditor>XiaoYu_博客</managingEditor><ttl>60</ttl><webMaster>XiaoYu_博客</webMaster><item><title>Markdown语法</title><link>https://bk.yf1688.top/post/Markdown-yu-fa.html</link><description>## 1 Markdown.com.cn 简介&#13;
 &#13;
 - 支持自定义样式的 Markdown 编辑器&#13;
 - 支持微信公众号、知乎和稀土掘金&#13;
 - 点击右上方对应图标，一键复制到各平台&#13;
+&#13;
 &#13;
 ## 2 Markdown语法教程&#13;
 &#13;
