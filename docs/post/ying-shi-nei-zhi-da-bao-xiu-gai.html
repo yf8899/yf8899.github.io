@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark_colorblind" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    <script src='https://blog.meekdai.com/Gmeek/plugins/GmeekVercount.js'></script>
+    <link rel="icon" href="https://yf1688.top/1115/static/img/favicon.ico"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="# 影视内置打包修改
+
+### 一、下载FongMi版仓库
+```
+https://github.com/FongMi/TV
+```
+首先修改gradle/wrapper/gradle-wrapper.properties，用于加速gradle的下载：
+将源代码
+```
+distributionUrl=https\://services.gradle.org/distributions/gradle-7.4.2-bin.zip
+```
+改成
+```
+distributionUrl=https\://mirrors.cloud.tencent.com/gradle/gradle-8.8-all.zip
+```
+---
+
+### 二、下载JDK17
+
+建议下载amazon-corretto版本
+
+```
+https://corretto.aws/downloads/resources/17.0.9.8.1/amazon-corretto-17.0.9.8.1-windows-x64-jdk.zip
+```
+
+---
+
+### 三、 解决加速及依赖问题(科学上网忽略)
+
+在同步的过程中，会出现下载依赖慢，某些包下载不了等问题，解决方法如下：
+ ★★项目根目录下《setting.gradle》文件中★★，添加aliyun的镜像，放在前面，
+
+```java
+	//改为阿里云的镜像地址
+	maven { setUrl('https://maven.aliyun.com/repository/central') }
+	maven { setUrl('https://maven.aliyun.com/repository/jcenter') }
+	maven { setUrl('https://maven.aliyun.com/repository/google') }
+	maven { setUrl('https://maven.aliyun.com/repository/gradle-plugin') }
+	maven { setUrl('https://maven.aliyun.com/repository/public') }
+```
+
+改后效果如下：
+```java
+pluginManagement {
+    repositories {
+	//改为阿里云的镜像地址
+	maven { setUrl('https://maven.aliyun.com/repository/central') }
+	maven { setUrl('https://maven.aliyun.com/repository/jcenter') }
+	maven { setUrl('https://maven.aliyun.com/repository/google') }
+	maven { setUrl('https://maven.aliyun.com/repository/gradle-plugin') }
+	maven { setUrl('https://maven.aliyun.com/repository/public') }
+        gradlePluginPortal()
+        mavenCentral()
+        jcenter()
+        google()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+	//改为阿里云的镜像地址
+	maven { setUrl('https://maven.aliyun.com/repository/central') }
+	maven { setUrl('https://maven.aliyun.com/repository/jcenter') }
+	maven { setUrl('https://maven.aliyun.com/repository/google') }
+	maven { setUrl('https://maven.aliyun.com/repository/gradle-plugin') }
+	maven { setUrl('https://maven.aliyun.com/repository/public') }	
+        mavenCentral()
+        jcenter()
+        google()
+        flatDir {
+            dirs '$rootDir/app/libs'
+        }
+        maven {
+            url 'https://jitpack.io'
+        }
+        maven {
+            url 'http://4thline.org/m2'
+            allowInsecureProtocol = true
+        }
+    }
+}
+include ':app'
+include ':hook'
+include ':tvbus'
+include ':catvod'
+include ':quickjs'
+include ':thunder'
+include ':jianpian'
+include ':forcetech'
+include ':ijkplayer'
+rootProject.name = 'TV'
+```
+
+---
+
+### 四、内置接口
+
+内置路径： /app/src/main/java/com/fongmi/android/tv/api/config/VodConfig.java
+
+
+原第136行：OK蜂蜜源代码如下：
+```java
+    private void loadConfigCache(Callback callback) {
+        if (!TextUtils.isEmpty(config.getJson()) && config.isCache()) checkJson(Json.parse(config.getJson()).getAsJsonObject(), callback);
+        else loadConfig(callback);
+    }
+```
+替换成如下代码：
+
+**在此之前请将88行中的**
+```java
+this.loadLive = false;
+```
+改成
+```java
+this.loadLive = true;
+```
+**这样直播接口就可以和点播接口同步加载，反之不同步。">
+<meta property="og:title" content="影视内置打包修改">
+<meta property="og:description" content="# 影视内置打包修改
+
+### 一、下载FongMi版仓库
+```
+https://github.com/FongMi/TV
+```
+首先修改gradle/wrapper/gradle-wrapper.properties，用于加速gradle的下载：
+将源代码
+```
+distributionUrl=https\://services.gradle.org/distributions/gradle-7.4.2-bin.zip
+```
+改成
+```
+distributionUrl=https\://mirrors.cloud.tencent.com/gradle/gradle-8.8-all.zip
+```
+---
+
+### 二、下载JDK17
+
+建议下载amazon-corretto版本
+
+```
+https://corretto.aws/downloads/resources/17.0.9.8.1/amazon-corretto-17.0.9.8.1-windows-x64-jdk.zip
+```
+
+---
+
+### 三、 解决加速及依赖问题(科学上网忽略)
+
+在同步的过程中，会出现下载依赖慢，某些包下载不了等问题，解决方法如下：
+ ★★项目根目录下《setting.gradle》文件中★★，添加aliyun的镜像，放在前面，
+
+```java
+	//改为阿里云的镜像地址
+	maven { setUrl('https://maven.aliyun.com/repository/central') }
+	maven { setUrl('https://maven.aliyun.com/repository/jcenter') }
+	maven { setUrl('https://maven.aliyun.com/repository/google') }
+	maven { setUrl('https://maven.aliyun.com/repository/gradle-plugin') }
+	maven { setUrl('https://maven.aliyun.com/repository/public') }
+```
+
+改后效果如下：
+```java
+pluginManagement {
+    repositories {
+	//改为阿里云的镜像地址
+	maven { setUrl('https://maven.aliyun.com/repository/central') }
+	maven { setUrl('https://maven.aliyun.com/repository/jcenter') }
+	maven { setUrl('https://maven.aliyun.com/repository/google') }
+	maven { setUrl('https://maven.aliyun.com/repository/gradle-plugin') }
+	maven { setUrl('https://maven.aliyun.com/repository/public') }
+        gradlePluginPortal()
+        mavenCentral()
+        jcenter()
+        google()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+	//改为阿里云的镜像地址
+	maven { setUrl('https://maven.aliyun.com/repository/central') }
+	maven { setUrl('https://maven.aliyun.com/repository/jcenter') }
+	maven { setUrl('https://maven.aliyun.com/repository/google') }
+	maven { setUrl('https://maven.aliyun.com/repository/gradle-plugin') }
+	maven { setUrl('https://maven.aliyun.com/repository/public') }	
+        mavenCentral()
+        jcenter()
+        google()
+        flatDir {
+            dirs '$rootDir/app/libs'
+        }
+        maven {
+            url 'https://jitpack.io'
+        }
+        maven {
+            url 'http://4thline.org/m2'
+            allowInsecureProtocol = true
+        }
+    }
+}
+include ':app'
+include ':hook'
+include ':tvbus'
+include ':catvod'
+include ':quickjs'
+include ':thunder'
+include ':jianpian'
+include ':forcetech'
+include ':ijkplayer'
+rootProject.name = 'TV'
+```
+
+---
+
+### 四、内置接口
+
+内置路径： /app/src/main/java/com/fongmi/android/tv/api/config/VodConfig.java
+
+
+原第136行：OK蜂蜜源代码如下：
+```java
+    private void loadConfigCache(Callback callback) {
+        if (!TextUtils.isEmpty(config.getJson()) && config.isCache()) checkJson(Json.parse(config.getJson()).getAsJsonObject(), callback);
+        else loadConfig(callback);
+    }
+```
+替换成如下代码：
+
+**在此之前请将88行中的**
+```java
+this.loadLive = false;
+```
+改成
+```java
+this.loadLive = true;
+```
+**这样直播接口就可以和点播接口同步加载，反之不同步。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://bk.yf1688.top/post/ying-shi-nei-zhi-da-bao-xiu-gai.html">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Meekdai/meekdai.github.io/logo64.jpg">
+<title>影视内置打包修改</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+<style>.markdown-alert{padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;line-height:1;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-tip {border-left-color:var(--borderColor-success-emphasis, var(--color-success-emphasis));background-color:var(--color-success-subtle);}.markdown-alert.markdown-alert-tip .markdown-alert-title {color: var(--fgColor-success,var(--color-success-fg));}</style><style>.markdown-alert.markdown-alert-important {border-left-color:var(--borderColor-done-emphasis, var(--color-done-emphasis));background-color:var(--color-done-subtle);}.markdown-alert.markdown-alert-important .markdown-alert-title {color: var(--fgColor-done,var(--color-done-fg));}</style>
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">影视内置打包修改</h1>
+<div class="title-right">
+    <a href="https://bk.yf1688.top" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/yf8899/yf8899.github.io/issues/9" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h1>影视内置打包修改</h1>
+<h3>一、下载FongMi版仓库</h3>
+<pre class="notranslate"><code class="notranslate">https://github.com/FongMi/TV
+</code></pre>
+<p>首先修改gradle/wrapper/gradle-wrapper.properties，用于加速gradle的下载：<br>
+将源代码</p>
+<pre class="notranslate"><code class="notranslate">distributionUrl=https\://services.gradle.org/distributions/gradle-7.4.2-bin.zip
+</code></pre>
+<p>改成</p>
+<pre class="notranslate"><code class="notranslate">distributionUrl=https\://mirrors.cloud.tencent.com/gradle/gradle-8.8-all.zip
+</code></pre>
+<hr>
+<h3>二、下载JDK17</h3>
+<p>建议下载amazon-corretto版本</p>
+<pre class="notranslate"><code class="notranslate">https://corretto.aws/downloads/resources/17.0.9.8.1/amazon-corretto-17.0.9.8.1-windows-x64-jdk.zip
+</code></pre>
+<hr>
+<h3>三、 解决加速及依赖问题(科学上网忽略)</h3>
+<p>在同步的过程中，会出现下载依赖慢，某些包下载不了等问题，解决方法如下：<br>
+★★项目根目录下《setting.gradle》文件中★★，添加aliyun的镜像，放在前面，</p>
+<div class="highlight highlight-source-java"><pre class="notranslate">	<span class="pl-c">//改为阿里云的镜像地址</span>
+	<span class="pl-s1">maven</span> { <span class="pl-en">setUrl</span>(<span class="pl-s">"https://maven.aliyun.com/repository/central"</span>) }
+	<span class="pl-s1">maven</span> { <span class="pl-en">setUrl</span>(<span class="pl-s">"https://maven.aliyun.com/repository/jcenter"</span>) }
+	<span class="pl-s1">maven</span> { <span class="pl-en">setUrl</span>(<span class="pl-s">"https://maven.aliyun.com/repository/google"</span>) }
+	<span class="pl-s1">maven</span> { <span class="pl-en">setUrl</span>(<span class="pl-s">"https://maven.aliyun.com/repository/gradle-plugin"</span>) }
+	<span class="pl-s1">maven</span> { <span class="pl-en">setUrl</span>(<span class="pl-s">"https://maven.aliyun.com/repository/public"</span>) }</pre></div>
+<p>改后效果如下：</p>
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-smi">pluginManagement</span> {
+    <span class="pl-s1">repositories</span> {
+	<span class="pl-c">//改为阿里云的镜像地址</span>
+	<span class="pl-s1">maven</span> { <span class="pl-en">setUrl</span>(<span class="pl-s">"https://maven.aliyun.com/repository/central"</span>) }
+	<span class="pl-s1">maven</span> { <span class="pl-en">setUrl</span>(<span class="pl-s">"https://maven.aliyun.com/repository/jcenter"</span>) }
+	<span class="pl-s1">maven</span> { <span class="pl-en">setUrl</span>(<span class="pl-s">"https://maven.aliyun.com/repository/google"</span>) }
+	<span class="pl-s1">maven</span> { <span class="pl-en">setUrl</span>(<span class="pl-s">"https://maven.aliyun.com/repository/gradle-plugin"</span>) }
+	<span class="pl-s1">maven</span> { <span class="pl-en">setUrl</span>(<span class="pl-s">"https://maven.aliyun.com/repository/public"</span>) }
+        <span class="pl-en">gradlePluginPortal</span>()
+        <span class="pl-en">mavenCentral</span>()
+        <span class="pl-en">jcenter</span>()
+        <span class="pl-en">google</span>()
+    }
+}
+<span class="pl-s1">dependencyResolutionManagement</span> {
+    <span class="pl-s1">repositoriesMode</span>.<span class="pl-en">set</span>(<span class="pl-smi">RepositoriesMode</span>.<span class="pl-c1">FAIL_ON_PROJECT_REPOS</span>)
+    <span class="pl-s1">repositories</span> {
+	<span class="pl-c">//改为阿里云的镜像地址</span>
+	<span class="pl-s1">maven</span> { <span class="pl-en">setUrl</span>(<span class="pl-s">"https://maven.aliyun.com/repository/central"</span>) }
+	<span class="pl-s1">maven</span> { <span class="pl-en">setUrl</span>(<span class="pl-s">"https://maven.aliyun.com/repository/jcenter"</span>) }
+	<span class="pl-s1">maven</span> { <span class="pl-en">setUrl</span>(<span class="pl-s">"https://maven.aliyun.com/repository/google"</span>) }
+	<span class="pl-s1">maven</span> { <span class="pl-en">setUrl</span>(<span class="pl-s">"https://maven.aliyun.com/repository/gradle-plugin"</span>) }
+	<span class="pl-s1">maven</span> { <span class="pl-en">setUrl</span>(<span class="pl-s">"https://maven.aliyun.com/repository/public"</span>) }	
+        <span class="pl-en">mavenCentral</span>()
+        <span class="pl-en">jcenter</span>()
+        <span class="pl-en">google</span>()
+        <span class="pl-s1">flatDir</span> {
+            <span class="pl-s1">dirs</span> <span class="pl-s">"$rootDir/app/libs"</span>
+        }
+        <span class="pl-smi">maven</span> {
+            <span class="pl-s1">url</span> <span class="pl-s">"https://jitpack.io"</span>
+        }
+        <span class="pl-smi">maven</span> {
+            <span class="pl-s1">url</span> <span class="pl-s">"http://4thline.org/m2"</span>
+            <span class="pl-s1">allowInsecureProtocol</span> = <span class="pl-c1">true</span>
+        }
+    }
+}
+<span class="pl-smi">include</span> <span class="pl-s">':app'</span>
+<span class="pl-s1">include</span> <span class="pl-s">':hook'</span>
+<span class="pl-s1">include</span> <span class="pl-s">':tvbus'</span>
+<span class="pl-s1">include</span> <span class="pl-s">':catvod'</span>
+<span class="pl-s1">include</span> <span class="pl-s">':quickjs'</span>
+<span class="pl-s1">include</span> <span class="pl-s">':thunder'</span>
+<span class="pl-s1">include</span> <span class="pl-s">':jianpian'</span>
+<span class="pl-s1">include</span> <span class="pl-s">':forcetech'</span>
+<span class="pl-s1">include</span> <span class="pl-s">':ijkplayer'</span>
+<span class="pl-s1">rootProject</span>.<span class="pl-s1">name</span> = <span class="pl-s">"TV"</span></pre></div>
+<hr>
+<h3>四、内置接口</h3>
+<p>内置路径： /app/src/main/java/com/fongmi/android/tv/api/config/VodConfig.java</p>
+<p>原第136行：OK蜂蜜源代码如下：</p>
+<div class="highlight highlight-source-java"><pre class="notranslate">    <span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">loadConfigCache</span>(<span class="pl-smi">Callback</span> <span class="pl-s1">callback</span>) {
+        <span class="pl-k">if</span> (!<span class="pl-smi">TextUtils</span>.<span class="pl-en">isEmpty</span>(<span class="pl-s1">config</span>.<span class="pl-en">getJson</span>()) &amp;&amp; <span class="pl-s1">config</span>.<span class="pl-en">isCache</span>()) <span class="pl-en">checkJson</span>(<span class="pl-smi">Json</span>.<span class="pl-en">parse</span>(<span class="pl-s1">config</span>.<span class="pl-en">getJson</span>()).<span class="pl-en">getAsJsonObject</span>(), <span class="pl-s1">callback</span>);
+        <span class="pl-k">else</span> <span class="pl-en">loadConfig</span>(<span class="pl-s1">callback</span>);
+    }</pre></div>
+<p>替换成如下代码：</p>
+<p><strong>在此之前请将88行中的</strong></p>
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-smi">this</span>.<span class="pl-s1">loadLive</span> = <span class="pl-c1">false</span>;</pre></div>
+<p>改成</p>
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-smi">this</span>.<span class="pl-s1">loadLive</span> = <span class="pl-c1">true</span>;</pre></div>
+<p><strong>这样直播接口就可以和点播接口同步加载，反之不同步。根据自己喜欢选择更改</strong></p>
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">loadConfigCache</span>(<span class="pl-smi">Callback</span> <span class="pl-s1">callback</span>) {
+        <span class="pl-smi">String</span> <span class="pl-s1">url</span> = <span class="pl-s1">config</span>.<span class="pl-en">getUrl</span>();
+        <span class="pl-k">if</span> (!<span class="pl-smi">TextUtils</span>.<span class="pl-en">isEmpty</span>(<span class="pl-s1">url</span>)) {
+            <span class="pl-c">// 如果有配置的 URL，尝试从该 URL 加载配置</span>
+            <span class="pl-en">loadConfigFromUrl</span>(<span class="pl-s1">url</span>, <span class="pl-s1">callback</span>);
+        } <span class="pl-k">else</span> {
+            <span class="pl-c">// 如果没有配置的 URL，使用默认 URL 加载配置</span>
+            <span class="pl-en">loadConfigFromDefaultUrl</span>(<span class="pl-s1">callback</span>);
+        }
+    }
+
+    <span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">loadConfigFromUrl</span>(<span class="pl-smi">String</span> <span class="pl-s1">url</span>, <span class="pl-smi">Callback</span> <span class="pl-s1">callback</span>) {
+        <span class="pl-k">try</span> {
+            <span class="pl-smi">String</span> <span class="pl-s1">json</span> = <span class="pl-smi">Decoder</span>.<span class="pl-en">getJson</span>(<span class="pl-s1">url</span>); <span class="pl-c">// 假设 Decoder.getJson 是从 URL 获取 JSON 字符串的方法</span>
+            <span class="pl-k">if</span> (!<span class="pl-smi">TextUtils</span>.<span class="pl-en">isEmpty</span>(<span class="pl-s1">json</span>)) {
+                <span class="pl-c">// 如果成功获取 JSON 字符串，解析 JSON 并调用回调</span>
+                <span class="pl-smi">JsonObject</span> <span class="pl-s1">jsonObject</span> = <span class="pl-smi">Json</span>.<span class="pl-en">parse</span>(<span class="pl-s1">json</span>).<span class="pl-en">getAsJsonObject</span>();
+                <span class="pl-en">checkJson</span>(<span class="pl-s1">jsonObject</span>, <span class="pl-s1">callback</span>);
+            } <span class="pl-k">else</span> {
+                <span class="pl-c">// 如果获取的 JSON 字符串为空，使用默认 URL 重新加载</span>
+                <span class="pl-en">loadConfigFromDefaultUrl</span>(<span class="pl-s1">callback</span>);
+            }
+        } <span class="pl-k">catch</span> (<span class="pl-smi">Exception</span> <span class="pl-s1">e</span>) {
+            <span class="pl-c">// 网络请求异常处理</span>
+            <span class="pl-s1">e</span>.<span class="pl-en">printStackTrace</span>();
+            <span class="pl-c">// 如果请求异常，使用默认 URL 重新加载</span>
+            <span class="pl-en">loadConfigFromDefaultUrl</span>(<span class="pl-s1">callback</span>);
+        }
+    }
+
+    <span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">loadConfigFromDefaultUrl</span>(<span class="pl-smi">Callback</span> <span class="pl-s1">callback</span>) {
+        <span class="pl-smi">String</span> <span class="pl-s1">defaultUrl</span> = <span class="pl-s">"此处填入你的接口地址"</span>;
+        <span class="pl-k">try</span> {
+            <span class="pl-smi">String</span> <span class="pl-s1">json</span> = <span class="pl-smi">Decoder</span>.<span class="pl-en">getJson</span>(<span class="pl-s1">defaultUrl</span>);
+            <span class="pl-k">if</span> (!<span class="pl-smi">TextUtils</span>.<span class="pl-en">isEmpty</span>(<span class="pl-s1">json</span>)) {
+                <span class="pl-smi">JsonObject</span> <span class="pl-s1">jsonObject</span> = <span class="pl-smi">Json</span>.<span class="pl-en">parse</span>(<span class="pl-s1">json</span>).<span class="pl-en">getAsJsonObject</span>();
+                <span class="pl-en">checkJson</span>(<span class="pl-s1">jsonObject</span>, <span class="pl-s1">callback</span>);
+                <span class="pl-smi">Config</span>.<span class="pl-en">find</span>(<span class="pl-s1">defaultUrl</span>, <span class="pl-c1">0</span>).<span class="pl-en">name</span>(<span class="pl-s">"公众号🍎：风言锋语88"</span>).<span class="pl-en">update</span>();
+            } <span class="pl-k">else</span> {
+                <span class="pl-c">// 如果默认 URL 加载的 JSON 字符串为空，调用回调的错误方法</span>
+                <span class="pl-smi">App</span>.<span class="pl-en">post</span>(() -&gt; <span class="pl-s1">callback</span>.<span class="pl-en">error</span>(<span class="pl-s">"微信公众号🍎《风言锋语88》"</span>));
+            }
+        } <span class="pl-k">catch</span> (<span class="pl-smi">Exception</span> <span class="pl-s1">e</span>) {
+            <span class="pl-c">// 默认 URL 请求异常处理</span>
+            <span class="pl-s1">e</span>.<span class="pl-en">printStackTrace</span>();
+            <span class="pl-smi">App</span>.<span class="pl-en">post</span>(() -&gt; <span class="pl-s1">callback</span>.<span class="pl-en">error</span>(<span class="pl-s">"加载配置失败："</span> + <span class="pl-s1">e</span>.<span class="pl-en">getMessage</span>()));
+        }
+    }</pre></div>
+<hr>
+<p>其实到这里可以说已经成功了，以下只是优化避免接口暴露</p>
+<h3>mobile版修改</h3>
+<h4>1.  隐藏接口地址</h4>
+<ul>
+<li>
+<p>mobile代码路径：</p>
+<p>app/src/mobile/java/com/fongmi/android/tv/ui/dialog/ConfigDialog.java</p>
+</li>
+</ul>
+<p>第68里的initView方法。</p>
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">initView</span>() {
+        <span class="pl-c">// 这里判断有名字就不会写到设置框里，例如名字是：源已内置</span>
+        <span class="pl-k">if</span> (<span class="pl-smi">TextUtils</span>.<span class="pl-en">isEmpty</span>(<span class="pl-en">getConfig</span>().<span class="pl-en">getName</span>())) {
+            <span class="pl-s1">binding</span>.<span class="pl-s1">url</span>.<span class="pl-en">setText</span>(<span class="pl-s1">ori</span> = <span class="pl-en">getConfig</span>().<span class="pl-en">getUrl</span>());
+        }
+        <span class="pl-s1">binding</span>.<span class="pl-s1">input</span>.<span class="pl-en">setVisibility</span>(<span class="pl-s1">edit</span> ? <span class="pl-smi">View</span>.<span class="pl-c1">VISIBLE</span> : <span class="pl-smi">View</span>.<span class="pl-c1">GONE</span>);
+        <span class="pl-s1">binding</span>.<span class="pl-s1">url</span>.<span class="pl-en">setSelection</span>(<span class="pl-smi">TextUtils</span>.<span class="pl-en">isEmpty</span>(<span class="pl-s1">ori</span>) ? <span class="pl-c1">0</span> : <span class="pl-s1">ori</span>.<span class="pl-en">length</span>());
+    }</pre></div>
+<h4>2. 修改设置弹框里的初始化逻辑，将设置框内容改成空时，重新读取内置源。</h4>
+<ul>
+<li>
+<p>mobile代码路径</p>
+<p>app/src/mobile/java/com/fongmi/android/tv/ui/dialog/ConfigDialog.java</p>
+</li>
+</ul>
+<p>第126行里的onPositive方法。</p>
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">onPositive</span>(<span class="pl-smi">DialogInterface</span> <span class="pl-s1">dialog</span>, <span class="pl-smi">int</span> <span class="pl-s1">which</span>) {
+        <span class="pl-smi">String</span> <span class="pl-s1">url</span> = <span class="pl-s1">binding</span>.<span class="pl-s1">url</span>.<span class="pl-en">getText</span>().<span class="pl-en">toString</span>().<span class="pl-en">trim</span>();
+        <span class="pl-smi">String</span> <span class="pl-s1">name</span> = <span class="pl-s1">binding</span>.<span class="pl-s1">name</span>.<span class="pl-en">getText</span>().<span class="pl-en">toString</span>().<span class="pl-en">trim</span>();
+        <span class="pl-k">if</span> (<span class="pl-s1">edit</span>) <span class="pl-smi">Config</span>.<span class="pl-en">find</span>(<span class="pl-s1">ori</span>, <span class="pl-s1">type</span>).<span class="pl-en">url</span>(<span class="pl-s1">url</span>).<span class="pl-en">name</span>(<span class="pl-s1">name</span>).<span class="pl-en">update</span>();
+        <span class="pl-k">if</span> (<span class="pl-s1">url</span>.<span class="pl-en">isEmpty</span>()) {
+            <span class="pl-c">// 未填写时，点了确定，改成内置源</span>
+            <span class="pl-s1">url</span> = <span class="pl-s">"此处填入你的接口地址"</span>;
+            <span class="pl-smi">Config</span>.<span class="pl-en">find</span>(<span class="pl-s1">url</span>, <span class="pl-c1">1</span>).<span class="pl-en">name</span>(<span class="pl-s">"公众号：风言锋语88"</span>).<span class="pl-en">update</span>();
+            <span class="pl-c">//Config.delete(ori, type);</span>
+        }
+        <span class="pl-s1">callback</span>.<span class="pl-en">setConfig</span>(<span class="pl-smi">Config</span>.<span class="pl-en">find</span>(<span class="pl-s1">url</span>, <span class="pl-s1">type</span>));
+        <span class="pl-s1">dialog</span>.<span class="pl-en">dismiss</span>();
+    }</pre></div>
+<hr>
+<h3>leanback版修改</h3>
+<h4>1.  隐藏接口地址</h4>
+<ul>
+<li>leanback代码路径：app/src/leanback/java/com/fongmi/android/tv/ui/dialog/ConfigDialog.java</li>
+</ul>
+<p>第82行里的initView方法。<br>
+leanback版本，除了修改一点代码外，还需新增一个getName方法，手动改一下即可：</p>
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">initView</span>() {
+        <span class="pl-smi">String</span> <span class="pl-s1">address</span> = <span class="pl-smi">Server</span>.<span class="pl-en">get</span>().<span class="pl-en">getAddress</span>();
+        <span class="pl-c">//  binding.text.setText(url = getUrl());</span>
+        <span class="pl-c">// 这里判断有名字就不会写到设置框里，例如名字是：源已内置</span>
+        <span class="pl-k">if</span> (<span class="pl-smi">TextUtils</span>.<span class="pl-en">isEmpty</span>(<span class="pl-en">getName</span>())) {
+            <span class="pl-s1">binding</span>.<span class="pl-s1">text</span>.<span class="pl-en">setText</span>(<span class="pl-s1">url</span> = <span class="pl-en">getUrl</span>());
+        }
+        <span class="pl-s1">binding</span>.<span class="pl-s1">code</span>.<span class="pl-en">setImageBitmap</span>(<span class="pl-smi">QRCode</span>.<span class="pl-en">getBitmap</span>(<span class="pl-smi">Server</span>.<span class="pl-en">get</span>().<span class="pl-en">getAddress</span>(<span class="pl-c1">3</span>), <span class="pl-c1">200</span>, <span class="pl-c1">0</span>));
+        <span class="pl-s1">binding</span>.<span class="pl-s1">info</span>.<span class="pl-en">setText</span>(<span class="pl-smi">ResUtil</span>.<span class="pl-en">getString</span>(<span class="pl-smi">R</span>.<span class="pl-s1">string</span>.<span class="pl-s1">push_info</span>, <span class="pl-smi">Server</span>.<span class="pl-en">get</span>().<span class="pl-en">getAddress</span>()).<span class="pl-en">replace</span>(<span class="pl-s">"，"</span>, <span class="pl-s">"<span class="pl-cce">\n</span>"</span>));
+        <span class="pl-s1">binding</span>.<span class="pl-s1">storage</span>.<span class="pl-en">setVisibility</span>(<span class="pl-smi">PermissionX</span>.<span class="pl-en">isGranted</span>(<span class="pl-s1">activity</span>, <span class="pl-smi">Manifest</span>.<span class="pl-s1">permission</span>.<span class="pl-c1">WRITE_EXTERNAL_STORAGE</span>) ? <span class="pl-smi">View</span>.<span class="pl-c1">GONE</span> : <span class="pl-smi">View</span>.<span class="pl-c1">VISIBLE</span>);
+    }
+    <span class="pl-k">private</span> <span class="pl-smi">String</span> <span class="pl-s1">getName</span>() {
+        <span class="pl-k">switch</span> (<span class="pl-s1">type</span>) {
+            <span class="pl-k">case</span> <span class="pl-c1">0</span>:
+                <span class="pl-k">return</span> <span class="pl-smi">VodConfig</span>.<span class="pl-en">get</span>().<span class="pl-en">getConfig</span>().<span class="pl-en">getName</span>();
+            <span class="pl-k">case</span> <span class="pl-c1">1</span>:
+                <span class="pl-k">return</span> <span class="pl-smi">LiveConfig</span>.<span class="pl-en">get</span>().<span class="pl-en">getConfig</span>().<span class="pl-en">getName</span>();
+            <span class="pl-k">case</span> <span class="pl-c1">2</span>:
+                <span class="pl-k">return</span> <span class="pl-smi">WallConfig</span>.<span class="pl-en">get</span>().<span class="pl-en">getConfig</span>().<span class="pl-en">getName</span>();
+            <span class="pl-k">default</span>:
+                <span class="pl-k">return</span> <span class="pl-s">""</span>;
+        }
+    }</pre></div>
+<h4>2. 修改设置弹框里的初始化逻辑，将设置框内容改成空时，重新读取内置源。</h4>
+<ul>
+<li>leanback代码路径：app/src/leanback/java/com/fongmi/android/tv/ui/dialog/ConfigDialog.java</li>
+</ul>
+<p>第157行里的onPositive方法。</p>
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">onPositive</span>(<span class="pl-smi">View</span> <span class="pl-s1">view</span>) {
+        <span class="pl-smi">String</span> <span class="pl-s1">text</span> = <span class="pl-s1">binding</span>.<span class="pl-s1">text</span>.<span class="pl-en">getText</span>().<span class="pl-en">toString</span>().<span class="pl-en">trim</span>();
+        <span class="pl-k">if</span> (<span class="pl-s1">edit</span>) <span class="pl-smi">Config</span>.<span class="pl-en">find</span>(<span class="pl-s1">url</span>, <span class="pl-s1">type</span>).<span class="pl-en">url</span>(<span class="pl-s1">text</span>).<span class="pl-en">update</span>();
+    <span class="pl-c">//  if (text.isEmpty()) Config.delete(url, type);</span>
+        <span class="pl-k">if</span> (<span class="pl-s1">text</span>.<span class="pl-en">isEmpty</span>()) {
+            <span class="pl-s1">url</span> = <span class="pl-s">"https://www.gitlink.org.cn/api/yf1688/box/raw/GL22.json?ref=master"</span>;
+            <span class="pl-smi">Config</span>.<span class="pl-en">find</span>(<span class="pl-s1">url</span>, <span class="pl-c1">1</span>).<span class="pl-en">name</span>(<span class="pl-s">"公众号：风言锋语88"</span>).<span class="pl-en">update</span>();
+            <span class="pl-c">//Config.delete(ori, type);</span>
+        }
+        <span class="pl-s1">callback</span>.<span class="pl-en">setConfig</span>(<span class="pl-smi">Config</span>.<span class="pl-en">find</span>(<span class="pl-s1">text</span>, <span class="pl-s1">type</span>));
+        <span class="pl-s1">dialog</span>.<span class="pl-en">dismiss</span>();
+    }</pre></div>
+<hr>
+<h3>五、仓库自动升级</h3>
+<p>路径：catvod/src/main/java/com/github/catvod/utils/Github.java</p>
+<p>将第11行</p>
+<pre class="notranslate"><code class="notranslate">public static final String URL = "https://my.t4tv.hz.cz";
+</code></pre>
+<p>改成</p>
+<pre class="notranslate"><code class="notranslate">"你的域名/Release";
+</code></pre>
+<h3>六、打包</h3>
+<p>打包apk提取路径：TV/app</p>
+<h3>七、上传apk软件到自己的仓库</h3>
+<p><strong>仓库路径设置：</strong><br>
+必须在根目录新建一个<code class="notranslate">Release</code>文件夹，然后在<code class="notranslate">Release</code>目录中新建一个<code class="notranslate">apk</code>文件夹，然后在<code class="notranslate">apk</code>文件夹中新建一个<code class="notranslate">release</code>文件夹、<code class="notranslate">kitkat</code>文件夹，<code class="notranslate">dev</code>文件夹，这三个文件夹分别代表<code class="notranslate">正式版</code>、<code class="notranslate">安卓4版</code>、<code class="notranslate">测试版</code>。在这三个文件夹中新建一个<code class="notranslate">mobile.json</code>文件和一个<code class="notranslate">leanback.json</code>文件。</p>
+<p>文件填入如下内容：</p>
+<div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-kos">{</span>
+  <span class="pl-s">"code"</span>: <span class="pl-c1">253</span><span class="pl-kos">,</span> <span class="pl-c">//版本号</span>
+  <span class="pl-s">"name"</span>: <span class="pl-s">"2.5.3"</span><span class="pl-kos">,</span> <span class="pl-c">//版本号</span>
+  <span class="pl-s">"desc"</span>: <span class="pl-s">"此处填写升级内容"</span>
+<span class="pl-kos">}</span></pre></div>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p><p>路径格式：<br>
+你的域名地址：/Release/apk/release/mobile-python-arm64_v8a.apk<br>
+你的域名地址：/Release/apk/release/leanback-python-armeabi_v7a.apk</p>
+</div>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p>软件名不能更改手机为<code class="notranslate">mobile-python-arm64_v8a.apk</code> ，TV版为<code class="notranslate">leanback-python-armeabi_v7a.apk</code><br>
+软件上传路径为<code class="notranslate">release</code>或<code class="notranslate">kitkat</code>或<code class="notranslate">dev</code>文件夹。</p>
+</div>
+<hr></div>
+<div style="font-size:small;margin-top:8px;float:right;">转载请注明出处</div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://bk.yf1688.top">XiaoYu_博客</a></div>
+<div id="footer2"><span id="filingNum"><a href="https://beian.miit.gov.cn/" target="_blank">风言锋语88</a> • </span>
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("18/11/2024"!=""){
+    var startSite=new Date("18/11/2024");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script><script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>
+
+</html>
