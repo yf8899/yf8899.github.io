@@ -1,8 +1,15 @@
 name: Delete old builds
 
 on:
-  workflow_dispatch: # 手动运行  
-  jobs:
+  workflow_dispatch: # 手动运行
+
+permissions:
+  contents: read                   # 允许读取仓库内容的权限
+  actions: write                   # 允许写入 GitHub Actions 的权限
+  workflows: write                 # 允许写入工作流的权限
+  id-token: write                  # 允许写入 id-token 的权限（如果需要）
+
+jobs:
   delete_old_builds:
     runs-on: ubuntu-latest
     strategy:
