@@ -373,10 +373,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
         <span class="pl-s1">flatDir</span> {
             <span class="pl-s1">dirs</span> <span class="pl-s">"$rootDir/app/libs"</span>
         }
-        <span class="pl-smi">maven</span> {
+        <span class="pl-s1">maven</span> {
             <span class="pl-s1">url</span> <span class="pl-s">"https://jitpack.io"</span>
         }
-        <span class="pl-smi">maven</span> {
+        <span class="pl-s1">maven</span> {
             <span class="pl-s1">url</span> <span class="pl-s">"http://4thline.org/m2"</span>
             <span class="pl-s1">allowInsecureProtocol</span> = <span class="pl-c1">true</span>
         }
@@ -396,7 +396,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <h3>四、内置接口</h3>
 <p>内置路径： /app/src/main/java/com/fongmi/android/tv/api/config/VodConfig.java</p>
 <p>原第136行：OK蜂蜜源代码如下：</p>
-<div class="highlight highlight-source-java"><pre class="notranslate">    <span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">loadConfigCache</span>(<span class="pl-smi">Callback</span> <span class="pl-s1">callback</span>) {
+<div class="highlight highlight-source-java"><pre class="notranslate">    <span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-en">loadConfigCache</span>(<span class="pl-smi">Callback</span> <span class="pl-s1">callback</span>) {
         <span class="pl-k">if</span> (!<span class="pl-smi">TextUtils</span>.<span class="pl-en">isEmpty</span>(<span class="pl-s1">config</span>.<span class="pl-en">getJson</span>()) &amp;&amp; <span class="pl-s1">config</span>.<span class="pl-en">isCache</span>()) <span class="pl-en">checkJson</span>(<span class="pl-smi">Json</span>.<span class="pl-en">parse</span>(<span class="pl-s1">config</span>.<span class="pl-en">getJson</span>()).<span class="pl-en">getAsJsonObject</span>(), <span class="pl-s1">callback</span>);
         <span class="pl-k">else</span> <span class="pl-en">loadConfig</span>(<span class="pl-s1">callback</span>);
     }</pre></div>
@@ -406,7 +406,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>改成</p>
 <div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-smi">this</span>.<span class="pl-s1">loadLive</span> = <span class="pl-c1">true</span>;</pre></div>
 <p><strong>这样直播接口就可以和点播接口同步加载，反之不同步。根据自己喜欢选择更改</strong></p>
-<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">loadConfigCache</span>(<span class="pl-smi">Callback</span> <span class="pl-s1">callback</span>) {
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-en">loadConfigCache</span>(<span class="pl-smi">Callback</span> <span class="pl-s1">callback</span>) {
         <span class="pl-smi">String</span> <span class="pl-s1">url</span> = <span class="pl-s1">config</span>.<span class="pl-en">getUrl</span>();
         <span class="pl-k">if</span> (!<span class="pl-smi">TextUtils</span>.<span class="pl-en">isEmpty</span>(<span class="pl-s1">url</span>)) {
             <span class="pl-c">// 如果有配置的 URL，尝试从该 URL 加载配置</span>
@@ -417,7 +417,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
         }
     }
 
-    <span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">loadConfigFromUrl</span>(<span class="pl-smi">String</span> <span class="pl-s1">url</span>, <span class="pl-smi">Callback</span> <span class="pl-s1">callback</span>) {
+    <span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-en">loadConfigFromUrl</span>(<span class="pl-smi">String</span> <span class="pl-s1">url</span>, <span class="pl-smi">Callback</span> <span class="pl-s1">callback</span>) {
         <span class="pl-k">try</span> {
             <span class="pl-smi">String</span> <span class="pl-s1">json</span> = <span class="pl-smi">Decoder</span>.<span class="pl-en">getJson</span>(<span class="pl-s1">url</span>); <span class="pl-c">// 假设 Decoder.getJson 是从 URL 获取 JSON 字符串的方法</span>
             <span class="pl-k">if</span> (!<span class="pl-smi">TextUtils</span>.<span class="pl-en">isEmpty</span>(<span class="pl-s1">json</span>)) {
@@ -436,7 +436,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
         }
     }
 
-    <span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">loadConfigFromDefaultUrl</span>(<span class="pl-smi">Callback</span> <span class="pl-s1">callback</span>) {
+    <span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-en">loadConfigFromDefaultUrl</span>(<span class="pl-smi">Callback</span> <span class="pl-s1">callback</span>) {
         <span class="pl-smi">String</span> <span class="pl-s1">defaultUrl</span> = <span class="pl-s">"此处填入你的接口地址"</span>;
         <span class="pl-k">try</span> {
             <span class="pl-smi">String</span> <span class="pl-s1">json</span> = <span class="pl-smi">Decoder</span>.<span class="pl-en">getJson</span>(<span class="pl-s1">defaultUrl</span>);
@@ -465,7 +465,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </li>
 </ul>
 <p>第68里的initView方法。</p>
-<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">initView</span>() {
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-en">initView</span>() {
         <span class="pl-c">// 这里判断有名字就不会写到设置框里，例如名字是：源已内置</span>
         <span class="pl-k">if</span> (<span class="pl-smi">TextUtils</span>.<span class="pl-en">isEmpty</span>(<span class="pl-en">getConfig</span>().<span class="pl-en">getName</span>())) {
             <span class="pl-s1">binding</span>.<span class="pl-s1">url</span>.<span class="pl-en">setText</span>(<span class="pl-s1">ori</span> = <span class="pl-en">getConfig</span>().<span class="pl-en">getUrl</span>());
@@ -481,7 +481,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </li>
 </ul>
 <p>第126行里的onPositive方法。</p>
-<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">onPositive</span>(<span class="pl-smi">DialogInterface</span> <span class="pl-s1">dialog</span>, <span class="pl-smi">int</span> <span class="pl-s1">which</span>) {
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-en">onPositive</span>(<span class="pl-smi">DialogInterface</span> <span class="pl-s1">dialog</span>, <span class="pl-smi">int</span> <span class="pl-s1">which</span>) {
         <span class="pl-smi">String</span> <span class="pl-s1">url</span> = <span class="pl-s1">binding</span>.<span class="pl-s1">url</span>.<span class="pl-en">getText</span>().<span class="pl-en">toString</span>().<span class="pl-en">trim</span>();
         <span class="pl-smi">String</span> <span class="pl-s1">name</span> = <span class="pl-s1">binding</span>.<span class="pl-s1">name</span>.<span class="pl-en">getText</span>().<span class="pl-en">toString</span>().<span class="pl-en">trim</span>();
         <span class="pl-k">if</span> (<span class="pl-s1">edit</span>) <span class="pl-smi">Config</span>.<span class="pl-en">find</span>(<span class="pl-s1">ori</span>, <span class="pl-s1">type</span>).<span class="pl-en">url</span>(<span class="pl-s1">url</span>).<span class="pl-en">name</span>(<span class="pl-s1">name</span>).<span class="pl-en">update</span>();
@@ -502,7 +502,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ul>
 <p>第82行里的initView方法。<br>
 leanback版本，除了修改一点代码外，还需新增一个getName方法，手动改一下即可：</p>
-<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">initView</span>() {
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-en">initView</span>() {
         <span class="pl-smi">String</span> <span class="pl-s1">address</span> = <span class="pl-smi">Server</span>.<span class="pl-en">get</span>().<span class="pl-en">getAddress</span>();
         <span class="pl-c">//  binding.text.setText(url = getUrl());</span>
         <span class="pl-c">// 这里判断有名字就不会写到设置框里，例如名字是：源已内置</span>
@@ -513,7 +513,7 @@ leanback版本，除了修改一点代码外，还需新增一个getName方法�
         <span class="pl-s1">binding</span>.<span class="pl-s1">info</span>.<span class="pl-en">setText</span>(<span class="pl-smi">ResUtil</span>.<span class="pl-en">getString</span>(<span class="pl-smi">R</span>.<span class="pl-s1">string</span>.<span class="pl-s1">push_info</span>, <span class="pl-smi">Server</span>.<span class="pl-en">get</span>().<span class="pl-en">getAddress</span>()).<span class="pl-en">replace</span>(<span class="pl-s">"，"</span>, <span class="pl-s">"<span class="pl-cce">\n</span>"</span>));
         <span class="pl-s1">binding</span>.<span class="pl-s1">storage</span>.<span class="pl-en">setVisibility</span>(<span class="pl-smi">PermissionX</span>.<span class="pl-en">isGranted</span>(<span class="pl-s1">activity</span>, <span class="pl-smi">Manifest</span>.<span class="pl-s1">permission</span>.<span class="pl-c1">WRITE_EXTERNAL_STORAGE</span>) ? <span class="pl-smi">View</span>.<span class="pl-c1">GONE</span> : <span class="pl-smi">View</span>.<span class="pl-c1">VISIBLE</span>);
     }
-    <span class="pl-k">private</span> <span class="pl-smi">String</span> <span class="pl-s1">getName</span>() {
+    <span class="pl-k">private</span> <span class="pl-smi">String</span> <span class="pl-en">getName</span>() {
         <span class="pl-k">switch</span> (<span class="pl-s1">type</span>) {
             <span class="pl-k">case</span> <span class="pl-c1">0</span>:
                 <span class="pl-k">return</span> <span class="pl-smi">VodConfig</span>.<span class="pl-en">get</span>().<span class="pl-en">getConfig</span>().<span class="pl-en">getName</span>();
@@ -530,7 +530,7 @@ leanback版本，除了修改一点代码外，还需新增一个getName方法�
 <li>leanback代码路径：app/src/leanback/java/com/fongmi/android/tv/ui/dialog/ConfigDialog.java</li>
 </ul>
 <p>第157行里的onPositive方法。</p>
-<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-s1">onPositive</span>(<span class="pl-smi">View</span> <span class="pl-s1">view</span>) {
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-k">private</span> <span class="pl-smi">void</span> <span class="pl-en">onPositive</span>(<span class="pl-smi">View</span> <span class="pl-s1">view</span>) {
         <span class="pl-smi">String</span> <span class="pl-s1">text</span> = <span class="pl-s1">binding</span>.<span class="pl-s1">text</span>.<span class="pl-en">getText</span>().<span class="pl-en">toString</span>().<span class="pl-en">trim</span>();
         <span class="pl-k">if</span> (<span class="pl-s1">edit</span>) <span class="pl-smi">Config</span>.<span class="pl-en">find</span>(<span class="pl-s1">url</span>, <span class="pl-s1">type</span>).<span class="pl-en">url</span>(<span class="pl-s1">text</span>).<span class="pl-en">update</span>();
     <span class="pl-c">//  if (text.isEmpty()) Config.delete(url, type);</span>
