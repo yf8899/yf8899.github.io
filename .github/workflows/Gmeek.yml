@@ -4,9 +4,9 @@ on:
   # 手动触发
   workflow_dispatch:
   # 推送代码到仓库时触发
-  push:
-    branches:
-      - main  # 你可以指定特定的分支，例如 main 或其他分支
+  #push:
+    #branches:
+      #- main  # 你可以指定特定的分支，例如 main 或其他分支
     
 jobs:
   build:
@@ -36,10 +36,13 @@ jobs:
       - name: Clone source code
         run: |
           GMEEK_VERSION=$(jq -r ".GMEEK_VERSION" config.json)
-          git clone https://github.com/yf8899/Gmeek.git /opt/Gmeek;     
+          git clone https://github.com/yf8899/Gmeek.git /opt/Gmeek;
           cd /opt/Gmeek/
-          lastTag=$(git describe --tags `git rev-list --tags --max-count=1`)
-          if [ $GMEEK_VERSION == 'last' ]; then git checkout $lastTag; else git checkout $GMEEK_VERSION; fi;
+          if [ "$GMEEK_VERSION" == 'last' ]; then
+            git checkout main  # 或者你希望的默认分支，如 main 或 master
+          else
+            git checkout $GMEEK_VERSION
+          fi
 
       - name: Install dependencies
         run: |
