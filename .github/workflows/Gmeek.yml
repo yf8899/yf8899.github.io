@@ -1,17 +1,17 @@
 name: build Gmeek
 
 on:
+  # 手动触发
   workflow_dispatch:
-  issues:
-    types: [opened, edited]
-  schedule:
-    - cron: "0 16 * * *"
+  # 推送代码到仓库时触发
+  push:
+    branches:
+      - main  # 你可以指定特定的分支，例如 main 或其他分支
     
 jobs:
   build:
     name: Generate blog
-    runs-on: ubuntu-latest
-    if: ${{ github.event.repository.owner.id == github.event.sender.id || github.event_name == 'schedule' }}
+    runs-on: ubuntu-latest    
     permissions: write-all
     steps:
       - name: Checkout
@@ -54,6 +54,7 @@ jobs:
           cp -a /opt/Gmeek/docs ${{ github.workspace }} 
           cp -a /opt/Gmeek/backup ${{ github.workspace }} 
           cp /opt/Gmeek/blogBase.json ${{ github.workspace }} 
+          cp /opt/Gmeek/CNAME /opt/Gmeek/docs/  # 确保 CNAME 文件被复制到 docs 目录
           
       - name: update html
         run: |
@@ -87,3 +88,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+            path: 'docs/.'  # 确保部署的是 docs 目录中的内容
