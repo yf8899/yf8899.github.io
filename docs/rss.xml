@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>风言锋语88</title><link>https://a.2015888.xyz</link><description>学习是一个永无止境的过程，你知道的越多，你不知道的也会越多，在有限的时间内坚持每天多学一点，你一定能成为你想要成为的那个人。</description><copyright>风言锋语88</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://2015888.xyz/111.jpg</url><title>avatar</title><link>https://a.2015888.xyz</link></image><lastBuildDate>Sat, 19 Apr 2025 04:47:30 +0000</lastBuildDate><managingEditor>风言锋语88</managingEditor><ttl>60</ttl><webMaster>风言锋语88</webMaster><item><title>github如何上传和下载大文件</title><link>https://a.2015888.xyz/post/github-ru-he-shang-chuan-he-xia-zai-da-wen-jian.html</link><description># github如何上传和下载大文件&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>风言锋语88</title><link>https://b.2015888.xyz</link><description>学习是一个永无止境的过程，你知道的越多，你不知道的也会越多，在有限的时间内坚持每天多学一点，你一定能成为你想要成为的那个人。</description><copyright>风言锋语88</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://b.2015888.xyz/111.jpg</url><title>avatar</title><link>https://b.2015888.xyz</link></image><lastBuildDate>Sat, 07 Jun 2025 06:44:28 +0000</lastBuildDate><managingEditor>风言锋语88</managingEditor><ttl>60</ttl><webMaster>风言锋语88</webMaster><item><title>github如何上传和下载大文件</title><link>https://b.2015888.xyz/post/github-ru-he-shang-chuan-he-xia-zai-da-wen-jian.html</link><description># github如何上传和下载大文件&#13;
 &#13;
-  github当文件大小大于50M就会提示用户，当文件大于100M会限制上传。</description><guid isPermaLink="true">https://a.2015888.xyz/post/github-ru-he-shang-chuan-he-xia-zai-da-wen-jian.html</guid><pubDate>Sun, 24 Nov 2024 21:04:07 +0000</pubDate></item><item><title>影视内置打包修改</title><link>https://a.2015888.xyz/post/ying-shi-nei-zhi-da-bao-xiu-gai.html</link><description># 影视内置打包修改&#13;
+  github当文件大小大于50M就会提示用户，当文件大于100M会限制上传。</description><guid isPermaLink="true">https://b.2015888.xyz/post/github-ru-he-shang-chuan-he-xia-zai-da-wen-jian.html</guid><pubDate>Sun, 24 Nov 2024 21:04:07 +0000</pubDate></item><item><title>影视内置打包修改</title><link>https://b.2015888.xyz/post/ying-shi-nei-zhi-da-bao-xiu-gai.html</link><description># 影视内置打包修改&#13;
 &#13;
 ### 一、下载FongMi版仓库&#13;
 ```&#13;
@@ -118,7 +118,7 @@ this.loadLive = false;&#13;
 ```java&#13;
 this.loadLive = true;&#13;
 ```&#13;
-**这样直播接口就可以和点播接口同步加载，反之不同步。</description><guid isPermaLink="true">https://a.2015888.xyz/post/ying-shi-nei-zhi-da-bao-xiu-gai.html</guid><pubDate>Wed, 20 Nov 2024 09:21:33 +0000</pubDate></item><item><title>小鱼影视更新日志</title><link>https://a.2015888.xyz/post/xiao-yu-ying-shi-geng-xin-ri-zhi.html</link><description>&gt; [!TIP]&#13;
+**这样直播接口就可以和点播接口同步加载，反之不同步。</description><guid isPermaLink="true">https://b.2015888.xyz/post/ying-shi-nei-zhi-da-bao-xiu-gai.html</guid><pubDate>Wed, 20 Nov 2024 09:21:33 +0000</pubDate></item><item><title>小鱼影视更新日志</title><link>https://b.2015888.xyz/post/xiao-yu-ying-shi-geng-xin-ri-zhi.html</link><description>&gt; [!TIP]&#13;
 &gt;# 《小鱼影视》历史更新日志：&#13;
 &#13;
 &#13;
@@ -679,7 +679,7 @@ this.loadLive = true;&#13;
 * 嗅探支持執行 js&#13;
 * 支持 click 參數&#13;
 * [點播]&#13;
-* 調整換源開關邏輯。</description><guid isPermaLink="true">https://a.2015888.xyz/post/xiao-yu-ying-shi-geng-xin-ri-zhi.html</guid><pubDate>Wed, 20 Nov 2024 08:15:11 +0000</pubDate></item><item><title>Markdown语法</title><link>https://a.2015888.xyz/post/Markdown-yu-fa.html</link><description>## 1 Markdown.com.cn 简介&#13;
+* 調整換源開關邏輯。</description><guid isPermaLink="true">https://b.2015888.xyz/post/xiao-yu-ying-shi-geng-xin-ri-zhi.html</guid><pubDate>Wed, 20 Nov 2024 08:15:11 +0000</pubDate></item><item><title>Markdown语法</title><link>https://b.2015888.xyz/post/Markdown-yu-fa.html</link><description>## 1 Markdown.com.cn 简介&#13;
 &#13;
 - 支持自定义样式的 Markdown 编辑器&#13;
 - 支持微信公众号、知乎和稀土掘金&#13;
@@ -690,15 +690,15 @@ this.loadLive = true;&#13;
 &#13;
 ### 2.1 标题&#13;
 &#13;
-Markdown 支持两种标题的语法，类 Setext 和类 atx 形式。</description><guid isPermaLink="true">https://a.2015888.xyz/post/Markdown-yu-fa.html</guid><pubDate>Wed, 20 Nov 2024 07:37:32 +0000</pubDate></item><item><title>【Gmeek进阶】强调关键信息使用</title><link>https://a.2015888.xyz/post/%E3%80%90Gmeek-jin-jie-%E3%80%91-qiang-diao-guan-jian-xin-xi-shi-yong.html</link><description>## 【Gmeek进阶】强调关键信息使用&#13;
+Markdown 支持两种标题的语法，类 Setext 和类 atx 形式。</description><guid isPermaLink="true">https://b.2015888.xyz/post/Markdown-yu-fa.html</guid><pubDate>Wed, 20 Nov 2024 07:37:32 +0000</pubDate></item><item><title>【Gmeek进阶】强调关键信息使用</title><link>https://b.2015888.xyz/post/%E3%80%90Gmeek-jin-jie-%E3%80%91-qiang-diao-guan-jian-xin-xi-shi-yong.html</link><description>## 【Gmeek进阶】强调关键信息使用&#13;
 &#13;
-Github的语法里面有5中警报强调信息，分别是`NOTE`  `TIP`  `IMPORTANT`  `WARNING`  `CAUTION` 。</description><guid isPermaLink="true">https://a.2015888.xyz/post/%E3%80%90Gmeek-jin-jie-%E3%80%91-qiang-diao-guan-jian-xin-xi-shi-yong.html</guid><pubDate>Mon, 18 Nov 2024 15:43:27 +0000</pubDate></item><item><title>Gmeek快速上手</title><link>https://a.2015888.xyz/post/Gmeek-kuai-su-shang-shou.html</link><description>##  一、配置文件&#13;
+Github的语法里面有5中警报强调信息，分别是`NOTE`  `TIP`  `IMPORTANT`  `WARNING`  `CAUTION` 。</description><guid isPermaLink="true">https://b.2015888.xyz/post/%E3%80%90Gmeek-jin-jie-%E3%80%91-qiang-diao-guan-jian-xin-xi-shi-yong.html</guid><pubDate>Mon, 18 Nov 2024 15:43:27 +0000</pubDate></item><item><title>Gmeek快速上手</title><link>https://b.2015888.xyz/post/Gmeek-kuai-su-shang-shou.html</link><description>##  一、配置文件&#13;
 &#13;
-按照安装步骤成功搭建好后，就可以阅读下面的内容修改配置文件啦。</description><guid isPermaLink="true">https://a.2015888.xyz/post/Gmeek-kuai-su-shang-shou.html</guid><pubDate>Mon, 18 Nov 2024 15:15:30 +0000</pubDate></item><item><title>小鱼影视必看技巧</title><link>https://a.2015888.xyz/post/xiao-yu-ying-shi-bi-kan-ji-qiao.html</link><description># 小鱼影视常用小Tip&#13;
+按照安装步骤成功搭建好后，就可以阅读下面的内容修改配置文件啦。</description><guid isPermaLink="true">https://b.2015888.xyz/post/Gmeek-kuai-su-shang-shou.html</guid><pubDate>Mon, 18 Nov 2024 15:15:30 +0000</pubDate></item><item><title>小鱼影视必看技巧</title><link>https://b.2015888.xyz/post/xiao-yu-ying-shi-bi-kan-ji-qiao.html</link><description># 小鱼影视常用小Tip&#13;
 &#13;
 ##  一、如何配置接口&#13;
 &#13;
-1. 在设置界面，点击最上面的`点播`就可以输入接口，配置完成就可以回到首页愉快观影。</description><guid isPermaLink="true">https://a.2015888.xyz/post/xiao-yu-ying-shi-bi-kan-ji-qiao.html</guid><pubDate>Mon, 18 Nov 2024 14:03:15 +0000</pubDate></item><item><title>抖音无水印视频下载代码分析</title><link>https://a.2015888.xyz/post/dou-yin-wu-shui-yin-shi-pin-xia-zai-dai-ma-fen-xi.html</link><description>看到有大神分享了一个去水印下载的代码，源代码是PHP的。</description><guid isPermaLink="true">https://a.2015888.xyz/post/dou-yin-wu-shui-yin-shi-pin-xia-zai-dai-ma-fen-xi.html</guid><pubDate>Mon, 18 Nov 2024 14:01:12 +0000</pubDate></item><item><title>友情链接</title><link>https://a.2015888.xyz/link.html</link><description>## 友情链接 &#13;
+1. 在设置界面，点击最上面的`点播`就可以输入接口，配置完成就可以回到首页愉快观影。</description><guid isPermaLink="true">https://b.2015888.xyz/post/xiao-yu-ying-shi-bi-kan-ji-qiao.html</guid><pubDate>Mon, 18 Nov 2024 14:03:15 +0000</pubDate></item><item><title>抖音无水印视频下载代码分析</title><link>https://b.2015888.xyz/post/dou-yin-wu-shui-yin-shi-pin-xia-zai-dai-ma-fen-xi.html</link><description>看到有大神分享了一个去水印下载的代码，源代码是PHP的。</description><guid isPermaLink="true">https://b.2015888.xyz/post/dou-yin-wu-shui-yin-shi-pin-xia-zai-dai-ma-fen-xi.html</guid><pubDate>Mon, 18 Nov 2024 14:01:12 +0000</pubDate></item><item><title>友情链接</title><link>https://b.2015888.xyz/link.html</link><description>## 友情链接 &#13;
 &#13;
 1. [svg图标](https://primer.style/foundations/icons#16px)&#13;
 &#13;
@@ -706,6 +706,6 @@ Github的语法里面有5中警报强调信息，分别是`NOTE`  `TIP`  `IMPORT
 2. [三六零天御](https://jiagu.360.cn/#/global/accounts)&#13;
 &#13;
 &#13;
-3.  [MT论坛](https://bbs.binmt.cc/forum.php)。</description><guid isPermaLink="true">https://a.2015888.xyz/link.html</guid><pubDate>Mon, 18 Nov 2024 15:22:43 +0000</pubDate></item><item><title>关于链接</title><link>https://a.2015888.xyz/about.html</link><description># 关于
+3.  [MT论坛](https://bbs.binmt.cc/forum.php)。</description><guid isPermaLink="true">https://b.2015888.xyz/link.html</guid><pubDate>Mon, 18 Nov 2024 15:22:43 +0000</pubDate></item><item><title>关于链接</title><link>https://b.2015888.xyz/about.html</link><description># 关于
 
-### 本人硬件攻城狮一枚，会用点[micropython](https://micropython.org/)写嵌入式代码，平时也喜欢折腾网站，学一点前端知识。</description><guid isPermaLink="true">https://a.2015888.xyz/about.html</guid><pubDate>Mon, 18 Nov 2024 16:00:49 +0000</pubDate></item></channel></rss>
+### 本人硬件攻城狮一枚，会用点[micropython](https://micropython.org/)写嵌入式代码，平时也喜欢折腾网站，学一点前端知识。</description><guid isPermaLink="true">https://b.2015888.xyz/about.html</guid><pubDate>Mon, 18 Nov 2024 16:00:49 +0000</pubDate></item></channel></rss>
