@@ -1,5 +1,5 @@
-# 风言锋语88 :link: https://b.2015888.xyz 
-### :page_facing_up: [8](https://b.2015888.xyz/tag.html) 
+# 风言锋语88 :link: https://yf1688.top 
+### :page_facing_up: [8](https://yf1688.top/tag.html) 
 ### :speech_balloon: 0 
 ### :hibiscus: 44238 
 ### :alarm_clock: 2025-06-07 14:59:33 
